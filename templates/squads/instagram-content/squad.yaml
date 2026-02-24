@@ -1,0 +1,55 @@
+code: instagram-content
+name: "Instagram Carousel Content Creator"
+description: "Produces viral Instagram carousel content from research to polished draft"
+icon: 🎠
+
+agents:
+  - researcher.agent.yaml
+  - ideator.agent.yaml
+  - copywriter.agent.yaml
+  - reviewer.agent.yaml
+
+party: ./squad-party.csv
+
+pipeline:
+  mode: hybrid
+  autonomy: high
+  max_review_cycles: 3
+
+  steps:
+    - id: research
+      agent: researcher
+      execution: subagent
+      output: ./output/drafts/research.md
+
+    - id: ideation
+      agent: ideator
+      execution: inline
+      input: ./output/drafts/research.md
+      output: ./output/drafts/ideas.md
+
+    - id: user-choice
+      type: checkpoint
+      message: "Here are the content ideas. Which one should we develop?"
+
+    - id: writing
+      agent: copywriter
+      execution: inline
+      output: ./output/drafts/draft.md
+
+    - id: review
+      agent: reviewer
+      execution: inline
+      input: ./output/drafts/draft.md
+      output: ./output/drafts/review.md
+      on_reject: writing
+      on_approve: final
+
+    - id: final
+      type: checkpoint
+      message: "Content is ready! Review and approve for saving."
+      output: ./output/{date}-carousel.md
+
+tools:
+  - web_search: native
+  - web_fetch: native

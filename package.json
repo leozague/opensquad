@@ -1,10 +1,10 @@
 {
   "name": "opensquad",
   "version": "0.1.0",
-  "description": "Multi-agent orchestration framework for Claude Code — create AI squads that work together",
+  "description": "Multi-agent orchestration framework — create AI squads that work together",
   "type": "module",
   "bin": {
-    "opensquad": "./bin/opensquad.js"
+    "opensquad": "bin/opensquad.js"
   },
   "scripts": {
     "test": "node --test tests/**/*.test.js"
@@ -16,7 +16,15 @@
     "orchestration",
     "squads"
   ],
-  "author": "",
+  "author": "Renato Asse (https://github.com/renatoasse)",
+  "homepage": "https://github.com/renatoasse/opensquad#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatoasse/opensquad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/renatoasse/opensquad/issues"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=20.0.0"

@@ -3,7 +3,6 @@
   "askName": "What's your name? → ",
   "atLeastOneIde": "Please select at least one IDE.",
   "chooseIdes": "Which IDEs/tools do you use? (select all that apply)",
-  "step1OpenCode": "1. See AGENTS.md in your project root for Open Code instructions",
   "step1Codex": "1. See AGENTS.md in your project root for Codex instructions",
   "step1Antigravity": "1. See .antigravity/rules.md for Antigravity instructions",
   "ideNotAvailable": "⚠️  \"{label}\" is not available yet. Choose another option.",

@@ -64,5 +64,8 @@
   "agentsUpdateDone": "✅ Updated {count} agent(s).",
   "agentsUpdateNone": "No agents installed to update.",
   "agentsError": "❌ Error: {message}",
-  "agentsUnknownCommand": "Unknown agents command: {cmd}\n  Usage: opensquad agents list|install|remove|update"
+  "agentsUnknownCommand": "Unknown agents command: {cmd}\n  Usage: opensquad agents list|install|remove|update",
+  "step1VsCodeCopilot": "1. Open this directory in VS Code",
+  "step2VsCodeCopilot": "2. Open Copilot Chat (Ctrl+Alt+I)",
+  "step3VsCodeCopilot": "3. Type /opensquad to get started"
 }

@@ -6,11 +6,11 @@
 
 ---
 
-## 1. Investigation Must Always Ask the User (#1)
+## 1. Investigation Must Be Offered (#1)
 
-**Problem:** Discovery skipped investigation without asking. The current Step 5 only asks if the user already mentioned reference profiles in earlier steps. If they didn't, it silently sets `investigation.enabled: false`.
+**Problem:** Discovery skipped investigation without ever mentioning it. The current Step 5 only triggers if the user already mentioned reference profiles in earlier steps. If they didn't, it silently skips the entire step.
 
-**Solution:** Change Step 5 (Investigation) to ALWAYS ask, regardless of what the user said before. The question must clearly communicate the trade-off:
+**Solution:** Change Step 5 (Investigation) to always offer the option. Remove the conditional gate. The question should communicate the trade-off clearly:
 
 > "Want to investigate reference profiles before building the squad? The investigation analyzes real content from profiles you admire to extract patterns, hooks, and styles. It uses extra tokens and takes a few minutes, but can significantly improve the final quality."
 >
@@ -18,7 +18,7 @@
 > 2. No, continue without investigation
 
 - Remove the condition "ONLY when domain = content AND user mentioned reference profiles".
-- Investigation should be offered for ALL domains — not just content.
+- The investigation option should be offered for all domains — not just content.
 - If "Yes" → ask for URLs as currently implemented.
 - If "No" → set `investigation.enabled: false` and continue.
 
@@ -48,13 +48,13 @@
 
 ---
 
-## 3. Contextualize Options With Examples (#4)
+## 3. Contextualize All Options With Examples (#4)
 
-**Problem:** When the Architect asks about tone of voice, it lists only labels ("Formal, Educativo, Descontraido") without context. The user can't tell how each option would look in practice.
+**Problem:** The Architect presents bare labels for options without context. The user can't tell what each choice actually means in practice.
 
 **Solution:** Add a rule to discovery and design prompts:
 
-> "When presenting options that involve style, tone, or approach choices, always include a short example of how each option would look in practice. Don't list bare labels."
+> "Whenever presenting options to the user, always include a short example or explanation that shows what each option means in practice. This applies to virtually every type of question — tone of voice, formats, audience, tools, investigation modes, anything with choices. Don't list bare labels."
 >
 > Bad: "1. Formal  2. Educativo  3. Descontraido"
 >
@@ -63,7 +63,7 @@
 > 2. Educativo — 'Sabia que o Instagram mudou o algoritmo? Vou te explicar o que muda pra voce'
 > 3. Descontraido — 'O Instagram mudou TUDO e ninguem te avisou. Bora entender?'"
 
-This applies to any question where the label alone is not self-explanatory.
+This applies to all questions where an example helps the user understand the choice — which is nearly all of them.
 
 **Files:** `_opensquad/core/prompts/discovery.prompt.md`, `_opensquad/core/prompts/design.prompt.md`
 

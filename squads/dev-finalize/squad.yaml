@@ -1,0 +1,15 @@
+name: "Dev Finalize"
+code: "dev-finalize"
+description: "Ao finalizar o desenvolvimento de uma feature: lê o git diff, atualiza CHANGELOG e STATE, e move a feature de in-progress para done"
+version: "1.0.0"
+created: "2026-04-08"
+
+skills:
+  - file_read
+  - file_write
+  - bash
+
+pipeline: pipeline/pipeline.yaml
+party: squad-party.csv
+
+locking: true  # Impede execucao simultanea no mesmo squad

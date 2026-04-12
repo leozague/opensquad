@@ -1,0 +1,55 @@
+pipeline:
+  name: "Video Business Analyzer Pipeline"
+  description: "Extrai ideia de negócio de vídeo YouTube → pesquisa mercado → plano de negócio → plano de execução"
+
+  steps:
+    - step: 1
+      name: "briefing"
+      file: "steps/step-01-briefing.md"
+      type: checkpoint
+
+    - step: 2
+      name: "extract-content"
+      file: "steps/step-02-extract-content.md"
+      type: agent
+      agent: vitor-video
+
+    - step: 3
+      name: "validate-idea"
+      file: "steps/step-03-validate-idea.md"
+      type: checkpoint
+
+    - step: 4
+      name: "market-research"
+      file: "steps/step-04-market-research.md"
+      type: agent
+      agent: marina-mercado
+
+    - step: 5
+      name: "business-strategy"
+      file: "steps/step-05-business-strategy.md"
+      type: agent
+      agent: pablo-plano
+
+    - step: 6
+      name: "review"
+      file: "steps/step-06-review.md"
+      type: agent
+      agent: raquel-revisao
+
+    - step: 7
+      name: "final-approval"
+      file: "steps/step-07-final-approval.md"
+      type: checkpoint
+
+    - step: 8
+      name: "publish-vault"
+      file: "steps/step-08-publish-vault.md"
+      type: agent
+      agent: inline
+      description: "Publica nota consolidada no vault PARA (03_Resources/negocios/) com links para os documentos completos no opensquad"
+
+  checkpoints:
+    - step-01-briefing
+    - step-03-validate-idea
+    - step-07-final-approval

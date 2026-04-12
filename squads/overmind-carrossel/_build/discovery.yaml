@@ -1,0 +1,28 @@
+squad_code: "overmind-carrossel"
+purpose: "Criar e publicar carrosséis no Instagram para a marca Overmind (Agência de IA)"
+domain: "content"
+
+company:
+  name: "Overmind (Grupo OMK)"
+  tone: "Provocação/Autoridade — inteligente, visionário, confiante, direto"
+  products: "Agentes de IA, automações com LLMs, RAG, chatbots corporativos, consultoria em IA"
+
+language: "Português (Brasil)"
+
+context:
+  audience: "Clientes atuais, leads/potenciais clientes, audiência geral"
+  platforms: "Instagram"
+  tone: "Provocação/Autoridade"
+  brand: "Overmind"
+
+tools_needed:
+  - web_search
+  - web_fetch
+  - image-creator
+  - instagram-publisher
+
+investigation:
+  enabled: false
+
+target_formats:
+  - instagram-feed

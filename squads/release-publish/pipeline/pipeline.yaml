@@ -1,0 +1,39 @@
+name: "Pipeline — Release Publish"
+squad: "release-publish"
+version: "1.0.0"
+
+steps:
+  - step: 1
+    name: "checkpoint-projeto-e-versao"
+    file: "steps/step-01-checkpoint.md"
+    type: checkpoint
+
+  - step: 2
+    name: "leitura-manifest-e-briefings"
+    file: "steps/step-02-leitura-dados.md"
+    agent: "release-publish/agents/release-writer"
+    execution: inline          # inline — leitura + redação
+
+  - step: 3
+    name: "checkpoint-conteudo-revisao"
+    file: "steps/step-03-checkpoint-revisao.md"
+    type: checkpoint
+
+  - step: 4
+    name: "geracao-html"
+    file: "steps/step-04-gera-html.md"
+    agent: "release-publish/agents/release-writer"
+    execution: inline          # inline — geração do HTML
+
+  - step: 5
+    name: "checkpoint-aprovacao-final"
+    file: "steps/step-05-checkpoint-final.md"
+    type: checkpoint
+
+checkpoints:
+  - step: 1
+    name: "Projeto e Versao"
+  - step: 3
+    name: "Revisao do Conteudo"
+  - step: 5
+    name: "Aprovacao Final"

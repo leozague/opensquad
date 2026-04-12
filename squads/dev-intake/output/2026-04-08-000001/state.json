@@ -1,0 +1,30 @@
+{
+  "squad": "dev-intake",
+  "status": "completed",
+  "step": { "current": 5, "total": 5, "label": "checkpoint-spec-aprovado" },
+  "agents": [
+    {
+      "id": "clara-entrevistadora",
+      "name": "Clara Entrevistadora",
+      "icon": "🎙️",
+      "status": "done",
+      "desk": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "sergio-especificador",
+      "name": "Sérgio Especificador",
+      "icon": "📋",
+      "status": "done",
+      "desk": { "col": 2, "row": 1 }
+    }
+  ],
+  "handoff": {
+    "from": "sergio-especificador",
+    "to": null,
+    "message": "Spec gerado e aprovado: feature-cnpj-autofill movida para in-progress.",
+    "completedAt": "2026-04-08T00:00:05Z"
+  },
+  "startedAt": "2026-04-08T00:00:01Z",
+  "completedAt": "2026-04-08T00:00:05Z",
+  "updatedAt": "2026-04-08T00:00:05Z"
+}

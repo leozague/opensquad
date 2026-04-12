@@ -1,0 +1,3 @@
+id,name,title,icon,execution,path
+dev-intake/agents/clara-entrevistadora,Clara Entrevistadora,Analista de Requisitos,🎙️,inline,./agents/clara-entrevistadora.agent.md
+dev-intake/agents/sergio-especificador,Sérgio Especificador,Especificador SDD,📋,inline,./agents/sergio-especificador.agent.md

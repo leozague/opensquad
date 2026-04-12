@@ -1,0 +1,5 @@
+id,name,title,icon,execution,path
+market-intelligence/agents/rafael-rastreador,Rafael Rastreador,Pesquisador de Inteligência,🔍,subagent,./agents/rafael-rastreador.agent.md
+market-intelligence/agents/ana-analitica,Ana Analítica,Analista de Inteligência de Mercado,📊,subagent,./agents/ana-analitica.agent.md
+market-intelligence/agents/diego-dashboard,Diego Dashboard,Criador de Relatórios Executivos,🎯,inline,./agents/diego-dashboard.agent.md
+market-intelligence/agents/vera-veredicto,Vera Veredicto,Revisora de Qualidade,✅,inline,./agents/vera-veredicto.agent.md

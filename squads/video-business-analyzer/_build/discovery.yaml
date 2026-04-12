@@ -1,0 +1,28 @@
+squad_code: "video-business-analyzer"
+purpose: "Analisar vídeos do YouTube, extrair o roteiro completo, identificar a ideia de negócio apresentada, fazer pesquisa de mercado (Brasil + Global), avaliar possibilidades de ganho, e montar documentação completa: plano de negócio e plano de execução para implementação posterior com outro squad."
+domain: "mixed"
+
+company:
+  name: "Grupo OMK"
+  tone: "Técnico-futurista, premium, direto, sofisticado"
+  products: "Software (Kansai), IA (Overmind), Dados (Meridiano), SaaS Financeiro (Visual Sales)"
+
+language: "pt-BR"
+
+context:
+  sources: "YouTube videos"
+  output_format: "Documentos separados (roteiro, análise de mercado, plano de negócio, plano de execução)"
+  frequency: "on demand"
+  market_focus: "Brasil + Global"
+  decisions: "Avaliar viabilidade de negócio, identificar oportunidades de mercado, definir roadmap de implementação"
+
+tools_needed:
+  - "web-browsing"
+  - "web-search"
+  - "web-fetch"
+
+investigation:
+  enabled: false
+  profiles: []
+
+target_formats: []

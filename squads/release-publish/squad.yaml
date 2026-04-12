@@ -1,0 +1,14 @@
+name: "Release Publish"
+code: "release-publish"
+description: "Lê o manifest de uma release e as briefings das features incluídas, e gera um documento HTML de release notes em linguagem de negócio para o cliente"
+version: "1.0.0"
+created: "2026-04-08"
+
+skills:
+  - file_read
+  - file_write
+
+pipeline: pipeline/pipeline.yaml
+party: squad-party.csv
+
+locking: true  # Impede execucao simultanea no mesmo squad

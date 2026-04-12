@@ -1,0 +1,128 @@
+squad:
+  code: "video-business-analyzer"
+  name: "Video Business Analyzer"
+  description: "Analisa vídeos do YouTube para extrair ideias de negócio, pesquisar mercado e montar planos de negócio e execução"
+
+agents:
+  - id: "squads/video-business-analyzer/agents/vitor-video"
+    name: "Vitor Video"
+    title: "Extrator de Conteúdo"
+    icon: "🎬"
+    execution: "subagent"
+    role_summary: "Extrai roteiro de vídeos YouTube, identifica a ideia de negócio e captura screenshots de software quando aplicável"
+    skills: []
+    tasks:
+      - name: "extract-video-content"
+        file: "tasks/extract-video-content.md"
+        description: "Extrai o conteúdo/roteiro completo do vídeo"
+      - name: "formulate-business-idea"
+        file: "tasks/formulate-business-idea.md"
+        description: "Formula a ideia de negócio a partir do conteúdo extraído"
+      - name: "capture-screenshots"
+        file: "tasks/capture-screenshots.md"
+        description: "Captura screenshots de telas de software mostradas no vídeo (condicional)"
+
+  - id: "squads/video-business-analyzer/agents/marina-mercado"
+    name: "Marina Mercado"
+    title: "Pesquisadora de Mercado"
+    icon: "🔍"
+    execution: "subagent"
+    role_summary: "Pesquisa de mercado completa: TAM/SAM/SOM, concorrentes, SWOT, tendências"
+    skills: []
+    tasks:
+      - name: "market-research"
+        file: "tasks/market-research.md"
+        description: "Pesquisa de mercado com análise TAM/SAM/SOM, concorrentes e SWOT"
+
+  - id: "squads/video-business-analyzer/agents/pablo-plano"
+    name: "Pablo Plano"
+    title: "Estrategista de Negócios"
+    icon: "📋"
+    execution: "inline"
+    role_summary: "Cria plano de negócio (Lean Canvas) e plano de execução (MVP, fases, recursos)"
+    skills: []
+    tasks:
+      - name: "business-plan"
+        file: "tasks/business-plan.md"
+        description: "Monta o plano de negócio com Lean Canvas e modelo de receita"
+      - name: "execution-plan"
+        file: "tasks/execution-plan.md"
+        description: "Cria plano de execução com MVP, fases, recursos e timeline"
+
+  - id: "squads/video-business-analyzer/agents/raquel-revisao"
+    name: "Raquel Revisao"
+    title: "Revisora de Qualidade"
+    icon: "✅"
+    execution: "inline"
+    role_summary: "Revisa todos os documentos por consistência, viabilidade e completude"
+    skills: []
+    tasks:
+      - name: "review-all-documents"
+        file: "tasks/review-all-documents.md"
+        description: "Revisa os 4-5 documentos gerados pelo squad"
+
+pipeline:
+  - step: 1
+    name: "briefing"
+    type: "checkpoint"
+    output_file: "squads/video-business-analyzer/output/briefing.md"
+
+  - step: 2
+    name: "extract-content"
+    type: "agent"
+    agent: "vitor-video"
+    execution: "subagent"
+    input_file: "squads/video-business-analyzer/output/briefing.md"
+    output_file: "squads/video-business-analyzer/output/roteiro-video.md"
+    model_tier: "powerful"
+
+  - step: 3
+    name: "validate-idea"
+    type: "checkpoint"
+
+  - step: 4
+    name: "market-research"
+    type: "agent"
+    agent: "marina-mercado"
+    execution: "subagent"
+    input_file: "squads/video-business-analyzer/output/ideia-de-negocio.md"
+    output_file: "squads/video-business-analyzer/output/analise-de-mercado.md"
+    model_tier: "powerful"
+
+  - step: 5
+    name: "business-strategy"
+    type: "agent"
+    agent: "pablo-plano"
+    execution: "inline"
+    input_file: "squads/video-business-analyzer/output/analise-de-mercado.md"
+    output_file: "squads/video-business-analyzer/output/plano-de-negocio.md"
+
+  - step: 6
+    name: "review"
+    type: "agent"
+    agent: "raquel-revisao"
+    execution: "inline"
+    output_file: "squads/video-business-analyzer/output/review-report.md"
+    on_reject: 5
+
+  - step: 7
+    name: "final-approval"
+    type: "checkpoint"
+
+investigation:
+  enriched: false
+
+research_brief: |
+  Frameworks: Lean Canvas, Business Model Canvas, Value Proposition Canvas, TAM/SAM/SOM, Porter's Five Forces, SWOT, MoSCoW, MVP Canvas.
+  Key terms: problem-solution fit, unit economics, ARPU, CAC, LTV, beachhead market, north star metric, go/no-go gate.
+
+skills_installed:
+  - "web_search"
+  - "web_fetch"
+
+formats_selected: []
+
+best_practices_consulted:
+  - "researching.md"
+  - "data-analysis.md"
+  - "review.md"

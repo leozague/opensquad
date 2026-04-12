@@ -1,0 +1,20 @@
+{
+  "squad": "video-business-analyzer",
+  "status": "completed",
+  "step": { "current": 7, "total": 7, "label": "final-approval" },
+  "agents": [
+    { "id": "vitor-video", "name": "Vitor Video", "icon": "🎬", "status": "done", "desk": { "col": 1, "row": 1 } },
+    { "id": "marina-mercado", "name": "Marina Mercado", "icon": "🔍", "status": "done", "desk": { "col": 2, "row": 1 } },
+    { "id": "pablo-plano", "name": "Pablo Plano", "icon": "📋", "status": "done", "desk": { "col": 3, "row": 1 } },
+    { "id": "raquel-revisao", "name": "Raquel Revisao", "icon": "✅", "status": "done", "desk": { "col": 1, "row": 2 } }
+  ],
+  "handoff": {
+    "from": "checkpoint",
+    "to": "completed",
+    "message": "Entrega aprovada pelo usuário. Pipeline finalizado com sucesso.",
+    "completedAt": "2026-04-09T16:35:00Z"
+  },
+  "startedAt": "2026-04-09T15:11:17Z",
+  "completedAt": "2026-04-09T16:35:00Z",
+  "updatedAt": "2026-04-09T16:35:00Z"
+}

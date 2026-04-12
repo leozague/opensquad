@@ -1,0 +1,6 @@
+id,name,title,icon,execution,path
+sec-audit/agents/owasp-auditor,OWASP Auditor,Auditora OWASP Top 10,🛡️,subagent,./agents/owasp-auditor.agent.md
+sec-audit/agents/infra-auditor,Infra Auditor,Auditor de Infraestrutura,🔒,subagent,./agents/infra-auditor.agent.md
+sec-audit/agents/auth-auditor,Auth Auditor,Auditora de Autenticacao e Autorizacao,🔑,subagent,./agents/auth-auditor.agent.md
+sec-audit/agents/dependency-auditor,Dependency Auditor,Auditor de Dependencias,📦,subagent,./agents/dependency-auditor.agent.md
+sec-audit/agents/report-writer,Report Writer,Redator do Relatorio de Seguranca,📋,inline,./agents/report-writer.agent.md

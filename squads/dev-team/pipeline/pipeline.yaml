@@ -1,0 +1,25 @@
+name: "Pipeline — Dev Team"
+squad: "dev-team"
+version: "1.0.0"
+
+steps:
+  - step: 1
+    name: "checkpoint-selecao-especialista"
+    file: "steps/step-01-checkpoint.md"
+    type: checkpoint
+
+  - step: 2
+    name: "consulta-especialista"
+    file: "steps/step-02-consulta.md"
+    execution: inline          # inline — conversa direta com o especialista
+
+  - step: 3
+    name: "checkpoint-proxima-acao"
+    file: "steps/step-03-checkpoint-proxima-acao.md"
+    type: checkpoint
+
+checkpoints:
+  - step: 1
+    name: "Selecao do Especialista"
+  - step: 3
+    name: "Proxima Acao"

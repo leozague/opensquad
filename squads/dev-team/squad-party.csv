@@ -1,0 +1,12 @@
+id,name,title,icon,execution,path
+dev-team/agents/business-owner,Business Owner,Dono do Produto,🏢,inline,./agents/business-owner.agent.md
+dev-team/agents/product-manager,Product Manager,Gerente de Produto,📋,inline,./agents/product-manager.agent.md
+dev-team/agents/arquiteto,Arquiteto,Arquiteto de Software,🏗️,inline,./agents/arquiteto.agent.md
+dev-team/agents/dba,DBA,Especialista em Banco de Dados,🗄️,inline,./agents/dba.agent.md
+dev-team/agents/backend-developer,Backend Developer,Desenvolvedor Backend,⚙️,inline,./agents/backend-developer.agent.md
+dev-team/agents/frontend-developer,Frontend Developer,Desenvolvedor Frontend,🖥️,inline,./agents/frontend-developer.agent.md
+dev-team/agents/qa-engineer,QA Engineer,Engenheira de Qualidade,🧪,inline,./agents/qa-engineer.agent.md
+dev-team/agents/devops-engineer,DevOps Engineer,Engenheiro de Infraestrutura,🔧,inline,./agents/devops-engineer.agent.md
+dev-team/agents/tech-writer,Tech Writer,Redatora Tecnica,📝,inline,./agents/tech-writer.agent.md
+dev-team/agents/design-patterns-expert,Design Patterns Expert,Especialista em Padroes de Projeto,📐,inline,./agents/design-patterns-expert.agent.md
+dev-team/agents/tech-stack-validator,Tech Stack Validator,Especialista em Versoes e Compatibilidade,🔬,inline,./agents/tech-stack-validator.agent.md

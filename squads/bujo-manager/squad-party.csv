@@ -1,0 +1,2 @@
+id,name,title,icon,execution,path
+bujo-manager/agents/ryder,Ryder,Organizador BuJo,📋,inline,./agents/ryder.agent.md

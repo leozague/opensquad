@@ -1,0 +1,58 @@
+name: "Pipeline — Dev Intake"
+squad: "dev-intake"
+version: "1.2.0"
+
+steps:
+  - step: 1
+    name: "checkpoint-projeto-e-solicitacao"
+    file: "steps/step-01-checkpoint.md"
+    type: checkpoint
+
+  - step: 2
+    name: "entrevista-clarificacao"
+    file: "steps/step-02-entrevista.md"
+    agent: "dev-intake/agents/clara-entrevistadora"
+    execution: inline
+
+  - step: 3
+    name: "checkpoint-perguntas-solicitante"
+    file: "steps/step-03-checkpoint-perguntas.md"
+    type: checkpoint
+
+  - step: 4
+    name: "gerar-perguntas-solicitante"
+    file: "steps/step-04-gerar-perguntas.md"
+    agent: "dev-intake/agents/clara-entrevistadora"
+    execution: inline
+
+  - step: 5
+    name: "checkpoint-briefing-aprovado"
+    file: "steps/step-05-checkpoint-briefing.md"
+    type: checkpoint
+
+  - step: 6
+    name: "geracao-spec-sdd"
+    file: "steps/step-06-spec.md"
+    agent: "dev-intake/agents/sergio-especificador"
+    execution: inline
+
+  - step: 7
+    name: "checkpoint-spec-aprovado"
+    file: "steps/step-07-checkpoint-spec.md"
+    type: checkpoint
+
+  - step: 8
+    name: "kickoff-automatico"
+    file: "steps/step-08-kickoff.md"
+    execution: inline
+    optional: true             # so executa se usuario escolheu kickoff no step 7
+
+checkpoints:
+  - step: 1
+    name: "Projeto e Solicitacao"
+  - step: 3
+    name: "Perguntas ao Solicitante"
+  - step: 5
+    name: "Briefing Aprovado"
+  - step: 7
+    name: "Spec Aprovado"

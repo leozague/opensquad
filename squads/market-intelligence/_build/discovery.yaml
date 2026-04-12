@@ -1,0 +1,26 @@
+squad_code: "market-intelligence"
+purpose: "Pesquisa e monitoramento de mercado, concorrência e tendências para o grupo OMK (Kansai, Overmind, Meridiano)"
+domain: "research"
+
+company:
+  name: "OMK (Kansai Tech House, Overmind, Meridiano)"
+  tone: "Técnico-futurista, premium, baseado em evidências"
+  products: "Desenvolvimento de software (Kansai), IA aplicada (Overmind), Dados e BI (Meridiano)"
+
+language: "Português (Brasil)"
+
+context:
+  sources: "Sites e notícias públicas, redes sociais (Instagram, Twitter/X, LinkedIn), APIs externas"
+  output_format: "Dashboard / Slide deck"
+  frequency: "Sob demanda (manual)"
+
+tools_needed:
+  - apify
+  - web_search
+  - web_fetch
+
+investigation:
+  enabled: false
+  profiles: []
+
+target_formats: []

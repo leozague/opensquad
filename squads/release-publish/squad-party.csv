@@ -1,0 +1,2 @@
+id,name,title,icon,execution,path
+release-publish/agents/release-writer,Release Writer,Redatora de Releases para Clientes,✍️,inline,./agents/release-writer.agent.md

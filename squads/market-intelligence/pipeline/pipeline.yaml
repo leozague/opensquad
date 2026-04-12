@@ -1,0 +1,54 @@
+name: "Pipeline — Squad de Inteligência de Mercado"
+squad: "market-intelligence"
+version: "1.0.0"
+
+steps:
+  - step: 1
+    name: "checkpoint-foco-pesquisa"
+    file: "steps/step-01-checkpoint-foco-pesquisa.md"
+    type: checkpoint
+
+  - step: 2
+    name: "pesquisa"
+    file: "steps/step-02-pesquisa.md"
+    agent: "market-intelligence/agents/rafael-rastreador"
+    execution: subagent
+    model_tier: fast
+
+  - step: 3
+    name: "analise"
+    file: "steps/step-03-analise.md"
+    agent: "market-intelligence/agents/ana-analitica"
+    execution: subagent
+    model_tier: powerful
+
+  - step: 4
+    name: "criacao-slides"
+    file: "steps/step-04-criacao-slides.md"
+    agent: "market-intelligence/agents/diego-dashboard"
+    execution: inline
+
+  - step: 5
+    name: "checkpoint-aprovar-conteudo"
+    file: "steps/step-05-checkpoint-aprovar-conteudo.md"
+    type: checkpoint
+
+  - step: 6
+    name: "revisao"
+    file: "steps/step-06-revisao.md"
+    agent: "market-intelligence/agents/vera-veredicto"
+    execution: inline
+    on_reject: 4
+
+  - step: 7
+    name: "checkpoint-aprovacao-final"
+    file: "steps/step-07-checkpoint-aprovacao-final.md"
+    type: checkpoint
+
+checkpoints:
+  - step: 1
+    name: "Foco da Pesquisa"
+  - step: 5
+    name: "Aprovar Conteúdo do Deck"
+  - step: 7
+    name: "Aprovação Final"

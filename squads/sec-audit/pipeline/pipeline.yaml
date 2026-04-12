@@ -1,0 +1,54 @@
+name: "Pipeline — Sec Audit"
+squad: "sec-audit"
+version: "1.0.0"
+
+steps:
+  - step: 1
+    name: "checkpoint-projeto-e-escopo"
+    file: "steps/step-01-checkpoint.md"
+    type: checkpoint
+
+  - step: 2
+    name: "owasp-top10-audit"
+    file: "steps/step-02-owasp-audit.md"
+    agent: "sec-audit/agents/owasp-auditor"
+    execution: subagent
+    model_tier: execution      # análise com julgamento — Sonnet
+
+  - step: 3
+    name: "auth-autorizacao-audit"
+    file: "steps/step-03-auth-audit.md"
+    agent: "sec-audit/agents/auth-auditor"
+    execution: subagent
+    model_tier: execution      # análise com julgamento — Sonnet
+
+  - step: 4
+    name: "infra-configuracao-audit"
+    file: "steps/step-04-infra-audit.md"
+    agent: "sec-audit/agents/infra-auditor"
+    execution: subagent
+    model_tier: trivial        # lê configs e verifica — Haiku
+
+  - step: 5
+    name: "dependency-audit"
+    file: "steps/step-05-dependency-audit.md"
+    agent: "sec-audit/agents/dependency-auditor"
+    execution: subagent
+    model_tier: trivial        # roda npm audit e organiza — Haiku
+
+  - step: 6
+    name: "compilacao-relatorio"
+    file: "steps/step-06-relatorio.md"
+    agent: "sec-audit/agents/report-writer"
+    execution: inline          # inline — consolidação final
+
+  - step: 7
+    name: "checkpoint-resultado-final"
+    file: "steps/step-07-checkpoint-final.md"
+    type: checkpoint
+
+checkpoints:
+  - step: 1
+    name: "Projeto e Escopo"
+  - step: 7
+    name: "Resultado da Auditoria"

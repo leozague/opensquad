@@ -1,0 +1,22 @@
+pipeline:
+  name: "Overmind Carrosséis Pipeline"
+  version: "1.0.0"
+
+steps:
+  - file: steps/step-01-research-focus.md
+  - file: steps/step-02-research.md
+  - file: steps/step-03-news-selection.md
+  - file: steps/step-04-generate-angles.md
+  - file: steps/step-05-angle-selection.md
+  - file: steps/step-06-create-carousel.md
+  - file: steps/step-07-content-approval.md
+  - file: steps/step-08-review.md
+  - file: steps/step-09-final-approval.md
+  - file: steps/step-10-publish.md
+
+checkpoints:
+  - step-01-research-focus
+  - step-03-news-selection
+  - step-05-angle-selection
+  - step-07-content-approval
+  - step-09-final-approval

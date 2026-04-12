@@ -1,0 +1,5 @@
+id,name,title,icon,path,execution
+vitor-video,Vitor Video,Extrator de Conteúdo,🎬,./agents/vitor-video.agent.md,subagent
+marina-mercado,Marina Mercado,Pesquisadora de Mercado,🔍,./agents/marina-mercado.agent.md,subagent
+pablo-plano,Pablo Plano,Estrategista de Negócios,📋,./agents/pablo-plano.agent.md,inline
+raquel-revisao,Raquel Revisao,Revisora de Qualidade,✅,./agents/raquel-revisao.agent.md,inline

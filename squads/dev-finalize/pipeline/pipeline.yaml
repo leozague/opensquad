@@ -1,0 +1,61 @@
+name: "Pipeline — Dev Finalize"
+squad: "dev-finalize"
+version: "3.0.0"
+
+steps:
+  - step: 1
+    name: "checkpoint-projeto-e-feature"
+    file: "steps/step-01-checkpoint.md"
+    type: checkpoint
+
+  - step: 2
+    name: "analise-git-diff"
+    file: "steps/step-02-analise-git.md"
+    agent: "dev-finalize/agents/git-arqueologa"
+    execution: subagent
+    model_tier: trivial        # lê diff e organiza — tarefa simples
+
+  - step: 3
+    name: "checkpoint-revisao-mudancas"
+    file: "steps/step-03-checkpoint-revisao.md"
+    type: checkpoint
+
+  - step: 4
+    name: "code-review"
+    file: "steps/step-04-code-review.md"
+    agent: "dev-finalize/agents/code-reviewer"
+    execution: subagent
+    model_tier: execution      # análise e julgamento — Sonnet
+
+  - step: 5
+    name: "security-check"
+    file: "steps/step-05-security-check.md"
+    agent: "dev-finalize/agents/security-analyst"
+    execution: subagent
+    model_tier: execution      # análise de segurança — Sonnet
+
+  - step: 6
+    name: "checkpoint-code-review-e-seguranca"
+    file: "steps/step-06-checkpoint-code-review.md"
+    type: checkpoint
+
+  - step: 7
+    name: "atualizacao-documentacao"
+    file: "steps/step-07-atualiza-docs.md"
+    agent: "dev-finalize/agents/doc-sintetizador"
+    execution: inline          # inline — usa modelo da sessão
+
+  - step: 8
+    name: "checkpoint-confirmacao-final"
+    file: "steps/step-08-checkpoint-final.md"
+    type: checkpoint
+
+checkpoints:
+  - step: 1
+    name: "Projeto e Feature"
+  - step: 3
+    name: "Revisao das Mudancas"
+  - step: 6
+    name: "Code Review e Seguranca"
+  - step: 8
+    name: "Confirmacao Final"

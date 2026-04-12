@@ -1,0 +1,4 @@
+id,name,title,icon,path,execution
+researcher,Nico Notícia,Pesquisador de Tendências,🔍,./agents/researcher.agent.md,subagent
+creator,Clara Carrossel,Criadora de Carrosséis Instagram,🎠,./agents/creator.agent.md,inline
+reviewer,Rui Revisão,Revisor de Qualidade,✅,./agents/reviewer.agent.md,inline

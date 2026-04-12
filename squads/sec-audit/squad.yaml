@@ -1,0 +1,15 @@
+name: "Sec Audit"
+code: "sec-audit"
+description: "Auditoria completa de seguranca pre-release: OWASP Top 10, autenticacao, autorizacao, comunicacao, configuracao de infra e dependencias vulneraveis"
+version: "1.0.0"
+created: "2026-04-08"
+
+skills:
+  - file_read
+  - bash
+  - web_fetch
+
+pipeline: pipeline/pipeline.yaml
+party: squad-party.csv
+
+locking: true  # Impede execucao simultanea no mesmo squad

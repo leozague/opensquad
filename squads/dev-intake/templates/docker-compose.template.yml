@@ -1,0 +1,54 @@
+# docker-compose.yml — Template para novos projetos Opensquad
+# Gerado pelo dev-intake ao registrar novo projeto
+# Substituir {PROJECT_CODE}, {API_PORT}, {WEB_PORT}, {DB_PORT}, {DB_NAME}
+
+services:
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile.dev
+    ports:
+      - "{API_PORT}:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/{DB_NAME}
+    volumes:
+      - ./apps/api:/app
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.dev
+    ports:
+      - "{WEB_PORT}:5173"
+    environment:
+      - VITE_API_URL=http://localhost:{API_PORT}
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "{DB_PORT}:5432"
+    environment:
+      - POSTGRES_DB={DB_NAME}
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - {PROJECT_CODE}_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  {PROJECT_CODE}_db_data:

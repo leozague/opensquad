@@ -1,0 +1,17 @@
+name: "Dev Intake"
+code: "dev-intake"
+description: "Recebe solicitações de usuários, conduz entrevista de clarificação e gera briefing + spec SDD prontos para desenvolvimento"
+version: "1.0.0"
+created: "2026-04-08"
+
+skills:
+  - file_read
+  - file_write
+
+data:
+  - pipeline/data/projects-registry.md
+
+pipeline: pipeline/pipeline.yaml
+party: squad-party.csv
+
+locking: true  # Impede execucao simultanea no mesmo squad

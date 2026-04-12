@@ -1,0 +1,5 @@
+id,name,title,icon,execution,path
+dev-finalize/agents/git-arqueologa,Git Arqueóloga,Analista de Mudanças,🔍,subagent,./agents/git-arqueologa.agent.md
+dev-finalize/agents/code-reviewer,Code Reviewer,Revisora de Código,🔎,subagent,./agents/code-reviewer.agent.md
+dev-finalize/agents/security-analyst,Security Analyst,Analista de Segurança,🔐,subagent,./agents/security-analyst.agent.md
+dev-finalize/agents/doc-sintetizador,Doc Sintetizador,Atualizador de Documentação,📝,inline,./agents/doc-sintetizador.agent.md

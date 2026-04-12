@@ -1,0 +1,26 @@
+squad:
+  code: overmind-carrossel
+  name: "Overmind Carrosséis"
+  description: "Criação e publicação de carrosséis Instagram para a marca Overmind"
+  icon: "🎠"
+  brand: overmind
+  language: "pt-BR"
+  created: "2026-04-09"
+
+skills:
+  - web_search
+  - web_fetch
+  - image-creator
+  - instagram-publisher
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/tone-of-voice.md
+
+pipeline: pipeline/pipeline.yaml
+party: squad-party.csv
+memory: _memory/memories.md

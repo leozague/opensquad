@@ -1,7 +1,7 @@
 node_modules/
 .env
 *.log
-squads/*/
+# squads/*/ — removido: fork pessoal, squads versionados
 _opensquad/_memory/company.md
 _opensquad/_memory/preferences.md
 _opensquad/_browser_profile/

@@ -1,0 +1,18 @@
+{
+  "squad": "dev-finalize",
+  "status": "completed",
+  "step": { "current": 5, "total": 5, "label": "checkpoint-confirmacao-final" },
+  "agents": [
+    { "id": "git-arqueologa", "name": "Git Arqueóloga", "icon": "🔍", "status": "done", "desk": { "col": 1, "row": 1 } },
+    { "id": "doc-sintetizador", "name": "Doc Sintetizador", "icon": "📝", "status": "done", "desk": { "col": 2, "row": 1 } }
+  ],
+  "handoff": {
+    "from": "doc-sintetizador",
+    "to": null,
+    "message": "CHANGELOG, STATE e índices atualizados. Feature movida para done/. Ciclo encerrado.",
+    "completedAt": "2026-04-08T00:00:06Z"
+  },
+  "startedAt": "2026-04-08T00:00:02Z",
+  "completedAt": "2026-04-08T00:00:06Z",
+  "updatedAt": "2026-04-08T00:00:06Z"
+}

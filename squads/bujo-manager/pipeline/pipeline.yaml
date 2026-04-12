@@ -1,0 +1,38 @@
+name: "Pipeline — BuJo Manager"
+squad: "bujo-manager"
+version: "1.0.0"
+
+steps:
+  - step: 1
+    name: "auto-check"
+    file: "steps/step-01-auto-check.md"
+    agent: "bujo-manager/agents/ryder"
+    execution: inline
+
+  - step: 2
+    name: "processar-inbox"
+    file: "steps/step-02-processar-inbox.md"
+    agent: "bujo-manager/agents/ryder"
+    execution: inline
+
+  - step: 3
+    name: "checkpoint-acao-do-dia"
+    file: "steps/step-03-checkpoint.md"
+    type: checkpoint
+
+  - step: 4
+    name: "execucao"
+    file: "steps/step-04-execucao.md"
+    agent: "bujo-manager/agents/ryder"
+    execution: inline
+
+  - step: 5
+    name: "weekly-review"
+    file: "steps/step-05-weekly-review.md"
+    agent: "bujo-manager/agents/ryder"
+    execution: inline
+    optional: true              # só roda se for dia de revisão (dom/seg)
+
+checkpoints:
+  - step: 3
+    name: "Ação do Dia"

@@ -1,0 +1,13 @@
+name: "Dev Team"
+code: "dev-team"
+description: "Time de desenvolvimento especializado para consulta durante qualquer fase do projeto. Selecione o especialista e descreva sua dúvida ou contexto."
+version: "1.0.0"
+created: "2026-04-08"
+
+skills:
+  - file_read
+  - file_write
+  - bash
+
+pipeline: pipeline/pipeline.yaml
+party: squad-party.csv

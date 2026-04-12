@@ -1,0 +1,25 @@
+squad:
+  code: video-business-analyzer
+  name: "Video Business Analyzer"
+  icon: "🎬"
+  description: "Analisa vídeos do YouTube para extrair ideias de negócio, pesquisar mercado e montar planos de negócio e execução"
+  language: "pt-BR"
+
+agents:
+  - vitor-video
+  - marina-mercado
+  - pablo-plano
+  - raquel-revisao
+
+pipeline: pipeline/pipeline.yaml
+
+skills:
+  - web_search
+  - web_fetch
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md

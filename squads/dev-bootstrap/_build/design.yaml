@@ -1,0 +1,206 @@
+# Design output — Dev Bootstrap Squad
+# Input: discovery.yaml
+
+squad:
+  code: "dev-bootstrap"
+  name: "Dev Bootstrap"
+  description: "Recebe planejamento de software e entrega projeto inicializado, testado, no GitHub e rodando em localhost com Docker stack para deploy em Easypanel"
+
+agents:
+  - id: "dev-bootstrap/agents/pablo-pesquisa"
+    name: "Pablo Pesquisa"
+    title: "Pesquisador de Mercado"
+    icon: "🔍"
+    execution: "subagent"
+    model_tier: "fast"
+    optional: true
+    role_summary: "Pesquisa de mercado — concorrentes, proposta de valor, diferenciais, tendencias do segmento do software"
+    skills: [web_search, web_fetch, file_write]
+    tasks:
+      - name: "market-research"
+        file: "tasks/market-research.md"
+        description: "Pesquisa web sobre mercado, concorrentes e tendencias do segmento definido no planejamento"
+
+  - id: "dev-bootstrap/agents/diana-docs"
+    name: "Diana Docs"
+    title: "Especialista em Documentacao"
+    icon: "📚"
+    execution: "subagent"
+    model_tier: "fast"
+    role_summary: "Busca e cacheia documentacao oficial de cada framework e lib nas versoes especificadas no planejamento"
+    skills: [web_fetch, file_read, file_write]
+    tasks:
+      - name: "fetch-framework-docs"
+        file: "tasks/fetch-framework-docs.md"
+        description: "WebFetch nas docs oficiais de cada framework/lib na versao especificada, salva cache local em pipeline/data/doc-cache/"
+
+  - id: "dev-bootstrap/agents/andre-arquitetura"
+    name: "Andre Arquitetura"
+    title: "Analista e Planejador SDD"
+    icon: "📐"
+    execution: "inline"
+    model_tier: "powerful"
+    role_summary: "Le o planejamento, consulta docs cacheadas, quebra em tarefas/sub-tarefas SDD, define arquitetura de repo, deploy pipeline, port registry"
+    skills: [file_read, file_write, web_fetch]
+    tasks:
+      - name: "analyze-planning"
+        file: "tasks/analyze-planning.md"
+        description: "Le o documento de planejamento e extrai requisitos, stack, versoes, padroes, features"
+      - name: "generate-sdd-specs"
+        file: "tasks/generate-sdd-specs.md"
+        description: "Quebra o planejamento em tarefas e sub-tarefas seguindo Spec Driven Development"
+      - name: "design-architecture"
+        file: "tasks/design-architecture.md"
+        description: "Define arquitetura de repo (mono/multi), estrutura de pastas, deploy pipeline, port registry, estrategia de testes"
+
+  - id: "dev-bootstrap/agents/bruno-bootstrap"
+    name: "Bruno Bootstrap"
+    title: "Executor de Projeto"
+    icon: "🔨"
+    execution: "inline"
+    model_tier: "powerful"
+    role_summary: "Executa scaffold, instala deps, implementa codigo, configura deploy, cria repo GitHub — para e pergunta em decisoes nao previstas"
+    skills: [file_read, file_write, bash, web_fetch]
+    tasks:
+      - name: "scaffold-project"
+        file: "tasks/scaffold-project.md"
+        description: "Cria estrutura do projeto, instala dependencias, configura ferramentas de repo"
+      - name: "implement-tasks"
+        file: "tasks/implement-tasks.md"
+        description: "Implementa todas as tarefas do SDD spec em ordem, commit atomico por tarefa"
+      - name: "setup-deploy"
+        file: "tasks/setup-deploy.md"
+        description: "Gera Docker stack para Easypanel, GitHub Actions, GHCR, webhooks"
+      - name: "setup-github"
+        file: "tasks/setup-github.md"
+        description: "Cria repo privado no GitHub (KansaiTechHouse), push inicial, configura secrets"
+
+  - id: "dev-bootstrap/agents/tiago-testes"
+    name: "Tiago Testes"
+    title: "Engenheiro de Testes"
+    icon: "🧪"
+    execution: "inline"
+    model_tier: "powerful"
+    role_summary: "Define estrategia de testes, escreve suite completa (unitarios, integracao, e2e), executa e garante cobertura minima"
+    skills: [file_read, file_write, bash, web_fetch]
+    tasks:
+      - name: "define-test-strategy"
+        file: "tasks/define-test-strategy.md"
+        description: "Define framework de testes com base na stack, configura ferramentas, define cobertura minima"
+      - name: "write-tests"
+        file: "tasks/write-tests.md"
+        description: "Escreve testes unitarios, de integracao e e2e cobrindo happy paths e edge cases"
+      - name: "run-coverage"
+        file: "tasks/run-coverage.md"
+        description: "Executa suite completa, gera relatorio de cobertura, corrige falhas"
+
+  - id: "dev-bootstrap/agents/victor-validacao"
+    name: "Victor Validacao"
+    title: "Revisor e Validador"
+    icon: "✅"
+    execution: "inline"
+    model_tier: "powerful"
+    role_summary: "Valida projeto final — codigo, estrutura, testes, cobertura, deploy config, seguranca, boas praticas"
+    skills: [file_read, bash]
+    tasks:
+      - name: "review-project"
+        file: "tasks/review-project.md"
+        description: "Revisao completa do projeto: codigo, testes, cobertura, deploy, seguranca, padroes"
+
+pipeline:
+  - step: 1
+    name: "checkpoint-input"
+    type: "checkpoint"
+    description: "Coleta: arquivo de planejamento, caminho do projeto, banco + credenciais, mono/multi repo, servidor de deploy, ativar pesquisa de mercado"
+    output_file: "squads/dev-bootstrap/output/input-params.yaml"
+
+  - step: 2
+    name: "market-research"
+    type: "agent"
+    agent: "dev-bootstrap/agents/pablo-pesquisa"
+    execution: "subagent"
+    model_tier: "fast"
+    optional: true
+    condition: "input-params.yaml → market_research == true"
+    output_file: "squads/dev-bootstrap/pipeline/data/research-brief.md"
+
+  - step: 3
+    name: "fetch-docs"
+    type: "agent"
+    agent: "dev-bootstrap/agents/diana-docs"
+    execution: "subagent"
+    model_tier: "fast"
+    output_file: "squads/dev-bootstrap/pipeline/data/doc-cache/"
+
+  - step: 4
+    name: "analyze-and-plan"
+    type: "agent"
+    agent: "dev-bootstrap/agents/andre-arquitetura"
+    execution: "inline"
+    model_tier: "powerful"
+    input_files:
+      - "squads/dev-bootstrap/output/input-params.yaml"
+      - "squads/dev-bootstrap/pipeline/data/doc-cache/"
+      - "squads/dev-bootstrap/pipeline/data/research-brief.md"
+    output_file: "squads/dev-bootstrap/output/sdd-plan.md"
+
+  - step: 5
+    name: "checkpoint-plan-approval"
+    type: "checkpoint"
+    description: "Apresenta plano completo: tarefas, sub-tarefas, specs, arquitetura, deploy, estrategia de testes, ordem de execucao"
+    input_file: "squads/dev-bootstrap/output/sdd-plan.md"
+
+  - step: 6
+    name: "execute-bootstrap"
+    type: "agent"
+    agent: "dev-bootstrap/agents/bruno-bootstrap"
+    execution: "inline"
+    model_tier: "powerful"
+    input_file: "squads/dev-bootstrap/output/sdd-plan.md"
+    on_interrupt: "ask-user"
+
+  - step: 7
+    name: "test-suite"
+    type: "agent"
+    agent: "dev-bootstrap/agents/tiago-testes"
+    execution: "inline"
+    model_tier: "powerful"
+    on_fail: 6
+
+  - step: 8
+    name: "review-project"
+    type: "agent"
+    agent: "dev-bootstrap/agents/victor-validacao"
+    execution: "inline"
+    model_tier: "powerful"
+    on_reject: 6
+
+  - step: 9
+    name: "checkpoint-delivery"
+    type: "checkpoint"
+    description: "Entrega final: documento resumo com URLs, credenciais, portas, dados de seed/login, comandos start/stop, relatorio de cobertura de testes"
+    output_file: "squads/dev-bootstrap/output/delivery-summary.md"
+
+data_files:
+  - "pipeline/data/doc-cache/"
+  - "pipeline/data/research-brief.md"
+  - "_opensquad/_memory/ports-registry.md"
+
+references:
+  github_org: "KansaiTechHouse"
+  port_registry: "_opensquad/_memory/ports-registry.md"
+  deploy_servers:
+    - "kansai02.duckdns.org:5001"
+    - "kansai04.duckdns.org:5002"
+    - "217.216.52.134:3000"
+
+skills_installed:
+  - file_read
+  - file_write
+  - bash
+  - web_fetch
+  - web_search
+
+best_practices_consulted: []
+
+formats_selected: []

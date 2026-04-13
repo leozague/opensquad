@@ -1,0 +1,45 @@
+squad_code: "youtube-knowledge"
+purpose: "Extrair conhecimento de videos do YouTube para alimentar o segundo cerebro (_THOTH). Gera nota para o vault (frontmatter/PARA/Zettelkasten), resumo executivo e transcricao anotada com timestamps."
+domain: "research"
+
+company:
+  name: "Grupo OMK"
+  tone: "Tecnico, direto, sem enrolacao"
+  products: "Kansai (software), Overmind (IA), Meridiano (dados), Visual Sales (SaaS)"
+
+language: "pt-BR"
+
+context:
+  sources: "YouTube (videos individuais e canais)"
+  output_format:
+    - "vault-note: Markdown estruturado com frontmatter, classificacao PARA, tags Zettelkasten"
+    - "executive-summary: Pontos-chave, insights e action items"
+    - "annotated-transcript: Transcricao com timestamps e destaques nos trechos relevantes"
+  frequency: "on-demand"
+  topics: "variedade — tecnico, negocios, estrategia, qualquer assunto"
+
+tools_needed:
+  - web_fetch
+  - web_search
+  - apify
+
+investigation:
+  enabled: true
+  profiles:
+    - url: "https://youtu.be/8nNgxTNd7wc"
+      platform: "youtube"
+      investigation_mode: "single_post"
+    - url: "https://youtu.be/Gx3Q5gaqNl0"
+      platform: "youtube"
+      investigation_mode: "single_post"
+    - url: "https://www.youtube.com/@eusoukelvincleto"
+      platform: "youtube"
+      investigation_mode: "profile_3"
+    - url: "https://youtu.be/dLs-Pbn8stU"
+      platform: "youtube"
+      investigation_mode: "single_post"
+    - url: "https://youtu.be/hgLpzI85-cs"
+      platform: "youtube"
+      investigation_mode: "single_post"
+
+target_formats: []

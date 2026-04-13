@@ -1,0 +1,40 @@
+name: "Pipeline — Pro Photo"
+squad: "pro-photo"
+version: "1.0.0"
+
+steps:
+  - step: 1
+    name: "checkpoint-foto-e-estilo"
+    file: "steps/step-01-checkpoint-foto.md"
+    type: checkpoint
+
+  - step: 2
+    name: "geracao-foto"
+    file: "steps/step-02-geracao.md"
+    agent: "pro-photo/agents/fabricio-fotografia"
+    execution: inline
+
+  - step: 3
+    name: "checkpoint-aprovar-foto"
+    file: "steps/step-03-checkpoint-foto.md"
+    type: checkpoint
+
+  - step: 4
+    name: "revisao-qualidade"
+    file: "steps/step-04-revisao.md"
+    agent: "pro-photo/agents/vivian-veredicto"
+    execution: inline
+    on_reject: 2
+
+  - step: 5
+    name: "checkpoint-aprovacao-final"
+    file: "steps/step-05-checkpoint-final.md"
+    type: checkpoint
+
+checkpoints:
+  - step: 1
+    name: "Foto e Estilo"
+  - step: 3
+    name: "Aprovar Foto Gerada"
+  - step: 5
+    name: "Aprovacao Final"

@@ -1,0 +1,3 @@
+id,name,title,icon,execution,path
+pro-photo/agents/fabricio-fotografia,Fabricio Fotografia,Diretor de Foto Profissional,📸,inline,./agents/fabricio-fotografia.agent.md
+pro-photo/agents/vivian-veredicto,Vivian Veredicto,Revisora de Qualidade Fotografica,✅,inline,./agents/vivian-veredicto.agent.md

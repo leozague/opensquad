@@ -27,10 +27,23 @@ Cada projeto recebe um **bloco de 10 portas** baseado no seu índice:
 | Index | Projeto | Código | API | Web | DB | Ambiente |
 |-------|---------|--------|-----|-----|----|----------|
 | 0 | Gold Letras | gold-letras | 3000 | 5173 | 5432 | docker |
+| 1 | THOTH App | thoth-app | 3010 | 5183 | 5442 | docker |
 
 ---
 
 ## Detalhes por Projeto
+
+### thoth-app — THOTH App (Projeto 1)
+
+- **Repositorio:** `/Users/macbookpro/Documents/FONTES/thoth-app`
+- **Ambiente local:** Docker (infra) + Node direto (app)
+- **API:** http://localhost:3010
+- **Web:** http://localhost:5183
+- **DB:** postgresql://localhost:5442/thoth_dev
+- **Swagger:** http://localhost:3010/api/docs
+- **Grafana:** http://localhost:3011
+- **Deploy:** vps4 (http://217.77.7.199:3000 — Easypanel)
+- **Registrado em:** 2026-04-13
 
 ### gold-letras — Gold Letras (Projeto 0)
 

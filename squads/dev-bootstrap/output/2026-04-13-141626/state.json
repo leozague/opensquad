@@ -1,0 +1,58 @@
+{
+  "squad": "dev-bootstrap",
+  "status": "completed",
+  "step": { "current": 9, "total": 9, "label": "checkpoint-delivery" },
+  "agents": [
+    {
+      "id": "pablo-pesquisa",
+      "name": "Pablo Pesquisa",
+      "icon": "🔍",
+      "status": "done",
+      "desk": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "diana-docs",
+      "name": "Diana Docs",
+      "icon": "📚",
+      "status": "done",
+      "desk": { "col": 2, "row": 1 }
+    },
+    {
+      "id": "andre-arquitetura",
+      "name": "Andre Arquitetura",
+      "icon": "📐",
+      "status": "done",
+      "desk": { "col": 3, "row": 1 }
+    },
+    {
+      "id": "bruno-bootstrap",
+      "name": "Bruno Bootstrap",
+      "icon": "🔨",
+      "status": "done",
+      "desk": { "col": 1, "row": 2 }
+    },
+    {
+      "id": "tiago-testes",
+      "name": "Tiago Testes",
+      "icon": "🧪",
+      "status": "done",
+      "desk": { "col": 2, "row": 2 }
+    },
+    {
+      "id": "victor-validacao",
+      "name": "Victor Validacao",
+      "icon": "✅",
+      "status": "done",
+      "desk": { "col": 3, "row": 2 }
+    }
+  ],
+  "handoff": {
+    "from": "victor-validacao",
+    "to": "victor-validacao",
+    "message": "Projeto THOTH App entregue — 36 modulos, 9 commits, ~6.700 linhas",
+    "completedAt": "2026-04-13T14:48:00-03:00"
+  },
+  "startedAt": "2026-04-13T14:16:26-03:00",
+  "updatedAt": "2026-04-13T14:48:00-03:00",
+  "completedAt": "2026-04-13T14:48:00-03:00"
+}

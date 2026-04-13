@@ -1,0 +1,7 @@
+id,name,title,icon,execution,path
+dev-bootstrap/agents/pablo-pesquisa,Pablo Pesquisa,Pesquisador de Mercado,🔍,subagent,./agents/pablo-pesquisa.agent.md
+dev-bootstrap/agents/diana-docs,Diana Docs,Especialista em Documentacao,📚,subagent,./agents/diana-docs.agent.md
+dev-bootstrap/agents/andre-arquitetura,Andre Arquitetura,Analista e Planejador SDD,📐,inline,./agents/andre-arquitetura.agent.md
+dev-bootstrap/agents/bruno-bootstrap,Bruno Bootstrap,Executor de Projeto,🔨,inline,./agents/bruno-bootstrap.agent.md
+dev-bootstrap/agents/tiago-testes,Tiago Testes,Engenheiro de Testes,🧪,inline,./agents/tiago-testes.agent.md
+dev-bootstrap/agents/victor-validacao,Victor Validacao,Revisor e Validador,✅,inline,./agents/victor-validacao.agent.md

@@ -1,0 +1,32 @@
+planning:
+  main_file: "/Users/macbookpro/Documents/_THOTH/01_Projects/thoth-app/README.md"
+  references: []
+
+project:
+  path: "/Users/macbookpro/Documents/FONTES/thoth-app"
+  name: "thoth-app"
+
+database:
+  engine: "postgres"
+  host: "localhost"
+  port: 5442
+  user: "thoth"
+  password: "thoth"
+  database_name: "thoth_dev"
+
+repository:
+  type: "monorepo"
+  tools: ["npm-workspaces"]
+
+deploy:
+  server: "vps4"
+  url: "http://217.77.7.199:3000"
+
+ports:
+  api: 3010
+  web: 5183
+  db: 5442
+
+market_research: false
+
+additional_requirements: []

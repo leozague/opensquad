@@ -1,0 +1,4 @@
+id,name,title,icon,execution,path
+youtube-knowledge/agents/teo-transcritor,Teo Transcritor,Extrator de Conteudo YouTube,🎬,subagent,./agents/teo-transcritor.agent.md
+youtube-knowledge/agents/sofia-sintese,Sofia Sintese,Sintetizadora de Conhecimento,🧠,inline,./agents/sofia-sintese.agent.md
+youtube-knowledge/agents/rita-revisao,Rita Revisao,Revisora de Qualidade,✅,inline,./agents/rita-revisao.agent.md

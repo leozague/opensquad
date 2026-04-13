@@ -1,0 +1,27 @@
+squad_code: "pro-photo"
+purpose: "Transformar fotos pessoais em fotos profissionais naturais para redes sociais. O usuario passa uma foto pessoal e a squad gera uma versao profissional adequada para Instagram, LinkedIn, WhatsApp, Twitter/X, YouTube e outras redes. As fotos devem parecer o mais natural possivel."
+domain: "content"
+
+company:
+  name: "Grupo OMK"
+  tone: "Profissional, tecnico-futurista (Kansai), inteligente e visionario (Overmind)"
+  products: "Software (Kansai), IA (Overmind), Dados (Meridiano), SaaS Financeiro (Visual Sales)"
+
+language: "pt-BR"
+
+context:
+  audience: "Leonardo (founder do Grupo OMK) — branding pessoal e profissional"
+  platforms: "Todas as redes sociais (Instagram, LinkedIn, WhatsApp, Twitter/X, YouTube)"
+  tone: "Profissional mas natural — fotos devem parecer reais, nao artificiais"
+  style: "Versatil — a squad pergunta o estilo desejado a cada execucao (corporate classico, tech founder moderno, lifestyle profissional, etc.)"
+
+tools_needed:
+  - image-ai-generator
+
+investigation:
+  enabled: false
+  profiles: []
+
+target_formats:
+  - instagram-feed
+  - linkedin-post

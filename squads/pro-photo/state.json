@@ -1,0 +1,24 @@
+{
+  "squad": "pro-photo",
+  "status": "running",
+  "step": { "current": 1, "total": 5, "label": "checkpoint-foto-e-estilo" },
+  "agents": [
+    {
+      "id": "fabricio-fotografia",
+      "name": "Fabricio Fotografia",
+      "icon": "📸",
+      "status": "idle",
+      "desk": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "vivian-veredicto",
+      "name": "Vivian Veredicto",
+      "icon": "✅",
+      "status": "idle",
+      "desk": { "col": 2, "row": 1 }
+    }
+  ],
+  "handoff": null,
+  "startedAt": "2026-04-13T16:37:48Z",
+  "updatedAt": "2026-04-13T16:37:48Z"
+}

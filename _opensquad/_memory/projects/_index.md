@@ -12,4 +12,11 @@
 | `consultoria-dados`    | serviço, consultoria      | contínuo   | meridiano            | ativo      |
 | `insights-cliente-x`   | serviço, customizado      | temporário | kansai               | ativo      |
 | `treinamento-ia`       | serviço, educação         | contínuo   | overmind             | ativo      |
+
+## Links com o vault THOTH
+
+Documentacao detalhada dos projetos (specs, decisoes, roadmaps): symlink `vault-projects` nesta mesma pasta.
+Cada projeto pode ter pasta em `vault-projects/{slug}/` com docs, specs e notas.
+
+Mapeamento de paths de codigo-fonte por maquina: `~/claude-toolkit/stations.yml` campo `projects`.
 | `marcapessoal-leo`     | conteudo, autoridade      | contínuo   | leonardo             | ativo      |

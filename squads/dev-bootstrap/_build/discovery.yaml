@@ -1,0 +1,91 @@
+squad_code: "dev-bootstrap"
+purpose: "Receber um planejamento de software (stack, versoes, banco, padroes, features) e transformar em um projeto inicializado, configurado, no GitHub e rodando em localhost. Gera Docker stack para deploy em Easypanel na VPS."
+domain: "automation"
+
+company:
+  name: "Grupo OMK"
+  tone: "Tecnico, direto, premium"
+  products: "Kansai (software), Overmind (IA), Meridiano (dados), Visual Sales (SaaS)"
+
+language: "pt-BR"
+
+context:
+  trigger: "manual — usuario fornece arquivo de planejamento e parametros"
+  input_format: "Markdown estruturado (.md) como principal, com suporte a pastas, PDFs, imagens, tabelas como referencias"
+  user_defines:
+    - caminho do projeto (onde criar o codigo fonte)
+    - modelo de deploy
+    - estrategia de testes
+    - requisitos adicionais
+    - arquitetura de repositorio (monorepo / multi-repo / hibrido)
+    - banco de dados e credenciais
+  stack: "agnostica — adapta-se ao que estiver definido no planejamento"
+  frequency: "on-demand"
+
+  market_research:
+    enabled: "optional"
+    description: "Pesquisa de mercado antes do planejamento tecnico — concorrentes, proposta de valor, diferenciais, tendencias"
+
+  repository_architecture:
+    options: ["monorepo", "multi-repo", "hibrido"]
+    tools: ["Turborepo", "Nx", "Lerna", "git submodules", "npm/yarn/pnpm workspaces"]
+
+  documentation:
+    strategy: "WebFetch na doc oficial da versao especificada + cache local para reuso"
+
+  local_environment:
+    docker: false
+    description: "Tudo instalado direto na maquina, roda em localhost"
+    databases_available: ["PostgreSQL", "MariaDB", "MySQL"]
+    database_flow: "Squad pergunta qual banco usar e recebe credenciais do usuario"
+    port_registry: "_opensquad/_memory/ports-registry.md"
+    port_block_size: 10
+    port_bases:
+      api: 3000
+      web: 5173
+      db: 5432
+
+  deploy:
+    target: "VPS Linux + Easypanel"
+    servers:
+      - name: "kansai02"
+        url: "kansai02.duckdns.org:5001"
+      - name: "kansai04"
+        url: "kansai04.duckdns.org:5002"
+      - name: "vps3"
+        address: "217.216.52.134"
+        url: "217.216.52.134:3000"
+    docker_stack: true
+    ci_cd: "GitHub Actions → GHCR → Webhook Easypanel"
+    webhook_pattern: "EASYPANEL_WEBHOOK_{SERVICE}_{STAGE}"
+
+  github:
+    org: "KansaiTechHouse"
+    visibility: "private"
+    auto_create: true
+
+  execution:
+    mode: "autonomous-after-approval"
+    planning_approval: true
+    smart_interruption: true
+    interruption_trigger: "Decisao arquitetural ou alteracao importante nao prevista no planejamento"
+
+  deliverables:
+    - "Projeto rodando em localhost"
+    - "Docker stack pronto para deploy no Easypanel"
+    - "Repo privado no GitHub (KansaiTechHouse)"
+    - "Documento de resumo: URLs, credenciais, dados de seed/login, portas, comandos start/stop"
+
+tools_needed:
+  - file_read
+  - file_write
+  - bash
+  - web_fetch
+  - web_search
+
+investigation:
+  mode: "none"
+
+target_formats: []
+
+performance_mode: "quality"

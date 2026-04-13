@@ -1,0 +1,23 @@
+name: "Dev Bootstrap"
+code: "dev-bootstrap"
+description: "Recebe planejamento de software e entrega projeto inicializado, testado, no GitHub e rodando em localhost com Docker stack para deploy em Easypanel"
+version: "1.0.0"
+created: "2026-04-13"
+
+skills:
+  - file_read
+  - file_write
+  - bash
+  - web_fetch
+  - web_search
+
+data:
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/anti-patterns.md
+  - _opensquad/_memory/ports-registry.md
+
+pipeline: pipeline/pipeline.yaml
+party: squad-party.csv
+
+locking: true
